@@ -21,6 +21,11 @@ public class OcupationPeriod {
         return endLunch()-beginLunch();
     }
 
+    private int beginLunch(){ return 13; }
+    private int endLunch(){
+        return 14;
+    }
+
     /**
      * Custom lunch time
      * @param begin
@@ -29,12 +34,6 @@ public class OcupationPeriod {
     public int lunchDuration(int begin, int end){
         return endLunch(end)-beginLunch(begin);
     }
-    private int beginLunch(){
-        return 13;
-    }
-    private int endLunch(){
-        return 14;
-    }
     private int beginLunch(int lunchBegining){
         return lunchBegining;
     }
@@ -42,6 +41,6 @@ public class OcupationPeriod {
         return lunchEnding;
     }
     public int occupationSummary(){
-        return ocupationEndTime-ocupationStartTime;
+        return ocupationEndTime-ocupationStartTime-lunchDuration();
     }
 }

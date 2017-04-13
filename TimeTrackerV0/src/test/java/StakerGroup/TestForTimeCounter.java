@@ -13,7 +13,7 @@ public class TestForTimeCounter {
         int end=18;
         day1.beginOcupation(start);
         day1.endOcupation(end);
-        assertTrue(day1.occupationSummary()==end-start);
+        assertTrue(day1.occupationSummary()==end-start-1);
     }
     @Test
     public void standartLunchCountingTest(){
