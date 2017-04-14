@@ -6,25 +6,22 @@ import static org.junit.Assert.assertTrue;
 
 public class TestForTimeCounter {
 
-    private OcupationPeriod day1 = new OcupationPeriod();
+
     @Test
     public void dayDurationTest(){
         int start=9;
         int end=18;
-        day1.beginOcupation(start);
+        OcupationPeriod day1 = new OcupationPeriod(9);
         day1.endOcupation(end);
-        assertTrue(day1.occupationSummary()==end-start-1);
+        day1.startLunch(12);
+        day1.endLunch(13);
+        assertTrue(day1.occupationSummary()==end-start-(1));
     }
-    @Test
-    public void standartLunchCountingTest(){
-        assertTrue(day1.lunchDuration()==1);
-
-    }
-    @Test
+   /* @Test
     public void customLunchCountingTest(){
         int lunchBegin=12;
         int lunchEnd=13;
-        assertTrue(day1.lunchDuration(lunchBegin,lunchEnd)==1);
+        assertTrue(day1.lunchTime(lunchBegin,lunchEnd)==1);
     }
-
+*/
 }

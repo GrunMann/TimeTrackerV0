@@ -2,45 +2,51 @@ package StakerGroup;
 
 public class OcupationPeriod {
 
-    private int ocupationStartTime;
+    private final int ocupationStartTime;
     private int ocupationEndTime;
+    private int lunchStartTime;
+    private int lunchEndTime;
 
-    OcupationPeriod() {
-    }
-    public void beginOcupation(int ocupationStartTime){
+
+    OcupationPeriod(int ocupationStartTime) {
         this.ocupationStartTime = ocupationStartTime;
     }
     public void endOcupation(int ocupationEndTime){
         this.ocupationEndTime = ocupationEndTime;
     }
-
-    /**
-     * Default lunch time
-     */
-    public int lunchDuration(){
-        return endLunch()-beginLunch();
+    public void startLunch(int lunchStart){
+        this.lunchStartTime=lunchStart;
     }
-
-    private int beginLunch(){ return 13; }
-    private int endLunch(){
-        return 14;
-    }
-
-    /**
-     * Custom lunch time
-     * @param begin
-     * @param end
-     */
-    public int lunchDuration(int begin, int end){
-        return endLunch(end)-beginLunch(begin);
-    }
-    private int beginLunch(int lunchBegining){
-        return lunchBegining;
-    }
-    private int endLunch(int lunchEnding){
-        return lunchEnding;
+    public void endLunch(int lunchFinish){
+        this.lunchEndTime=lunchFinish;
     }
     public int occupationSummary(){
-        return ocupationEndTime-ocupationStartTime-lunchDuration();
+        return  ocupationEndTime
+               -ocupationStartTime
+               -(lunchEndTime-lunchStartTime);
+    }
+
+    public int getOcupationStartTime() {
+        return ocupationStartTime;
+    }
+
+    public int getOcupationEndTime() {
+        return ocupationEndTime;
+    }
+
+    public int getOcupationTime() {
+        return ocupationEndTime-ocupationStartTime;
+    }
+
+    public int getLunchStartTime() {
+        return lunchStartTime;
+    }
+
+    public int getLunchEndTime() {
+        return lunchEndTime;
+    }
+
+    public int getLunchTime() {
+        return lunchEndTime-lunchStartTime;
     }
 }
