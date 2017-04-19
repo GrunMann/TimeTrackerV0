@@ -20,5 +20,7 @@ public class TestForTimeCounter {
         day1.endLunch(13,0);
         Duration testDuration = day1.getOccupationTime().minus(day1.getLunchTime());
         assertTrue(day1.occupationSummary().equals(testDuration));
+        assertTrue(day1.getLunchTime().toMinutes()==60);
+
     }
 }

@@ -25,8 +25,8 @@ public class OccupationPeriod {
     }
     public Duration occupationSummary(){
         return  Duration
-                .between(occupationStartTime,occupationEndTime)
-                .minus(Duration.between(lunchStartTime,lunchEndTime)
+                .between(getOccupationStartTime(),getOccupationEndTime())
+                .minus(Duration.between(getLunchStartTime(),getLunchEndTime())
                 );
     }
 
@@ -39,7 +39,7 @@ public class OccupationPeriod {
     }
 
     public Duration getOccupationTime() {
-        return Duration.between(occupationStartTime, occupationEndTime);
+        return Duration.between(getOccupationStartTime(), getOccupationEndTime());
     }
 
     public LocalTime getLunchStartTime() {
@@ -51,6 +51,6 @@ public class OccupationPeriod {
     }
 
     public Duration getLunchTime() {
-        return Duration.between(lunchStartTime, lunchEndTime);
+        return Duration.between(getLunchStartTime(), getLunchEndTime());
     }
 }
